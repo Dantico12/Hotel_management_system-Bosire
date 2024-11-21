@@ -55,9 +55,10 @@ if ($stmt = $conn->prepare($query)) {
             <ul class="nav-list d-flex">
                 <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="products.php?category=all" class="nav-link">All</a></li>
-                <li class="nav-item"><a href="products.php?category=Girls" class="nav-link">Girls</a></li>
-                <li class="nav-item"><a href="products.php?category=Boys" class="nav-link">Boys</a></li>
-                <li class="nav-item"><a href="products.php?category=Accessories" class="nav-link">Accessories</a></li>
+                <li class="nav-item"><a href="products.php?category=Girls" class="nav-link">breakfast</a></li>
+                <li class="nav-item"><a href="products.php?category=Boys" class="nav-link">Lunch</a></li>
+                <li class="nav-item"><a href="products.php?category=Accessories" class="nav-link">Supper</a></li>
+                
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 <li class="icons d-flex">

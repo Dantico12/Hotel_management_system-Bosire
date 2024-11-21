@@ -37,16 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle image upload
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $upload_dir = "uploads/";
-        
+
         // Create uploads directory if it doesn't exist
         if (!file_exists($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
-        
+
         $file_extension = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
         $new_filename = uniqid() . '.' . $file_extension;
         $target_file = $upload_dir . $new_filename;
-        
+
         // Move uploaded file
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
             // Delete old image if it exists
@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 0;
             padding: 20px;
         }
-        
+
         .container {
             min-height: 350px;
             padding: 40px;
@@ -96,34 +97,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             margin-bottom: 50px;
         }
-        
+
         h1 {
             margin-bottom: 30px;
             color: #4CAF50;
             text-align: center;
             font-size: 2.5em;
         }
-        
+
         .form-container {
             background-color: #2c2c2c;
             padding: 30px;
             border-radius: 10px;
             width: 100%;
             max-width: 600px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             color: #4CAF50;
             font-weight: bold;
         }
-        
+
         input[type="text"],
         input[type="number"],
         textarea,
@@ -136,12 +137,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #fff;
             font-size: 16px;
         }
-        
+
         select option {
             background-color: #1a1a1a;
             color: #fff;
         }
-        
+
         input[type="file"] {
             width: 100%;
             padding: 10px;
@@ -152,13 +153,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 16px;
             cursor: pointer;
         }
-        
+
         .button-group {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
         }
-        
+
         .btn {
             background-color: #4CAF50;
             color: white;
@@ -172,24 +173,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             min-width: 120px;
             text-align: center;
         }
-        
+
         .btn:hover {
             background-color: #45a049;
             transform: translateY(-2px);
         }
-        
+
         .btn:active {
             transform: translateY(0);
         }
-        
+
         .btn-cancel {
             background-color: #dc3545;
         }
-        
+
         .btn-cancel:hover {
             background-color: #c82333;
         }
-        
+
         .current-image {
             margin-top: 10px;
             max-width: 200px;
@@ -197,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 5px;
             display: block;
         }
-        
+
         .image-preview {
             margin-top: 10px;
             padding: 10px;
@@ -206,6 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Edit Product</h1>
@@ -256,4 +258,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </body>
+
 </html>

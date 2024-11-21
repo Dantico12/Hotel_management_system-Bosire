@@ -68,7 +68,7 @@
                     <a href="products.php" class="hero-btn">SHOP NOW</a>
                   </div>
                   <div class="right">
-                    <img class="img1" src="./images/girl.png" alt="Girl Image">
+                    <img class="img1" src="./images/chicken.jpg" alt="Girl Image">
                   </div>
                 </div>
               </li>
@@ -81,7 +81,7 @@
                     <a href="products.PHP" class="hero-btn">SHOP NOW</a>
                   </div>
                   <div class="right">
-                    <img class="img2" src="./images/about.jpg" alt="Image 2">
+                    <img class="img2" src="./images/eatery.jpg" alt="Image 2">
                   </div>
                 </div>
               </li>
@@ -94,23 +94,23 @@
   <section class="section category" id="product">
     <div class="cat-center">
       <div class="cat">
-        <img src="./images/girl.png" alt="">
+        <img src="./images/cake.jpg" alt="">
         <div>
-          <p>GIRLS WEAR</p>
+          <p>BREAKFAST</p>
         </div>
       </div>
 
       <div class="cat">
-        <img src="./images/fashion.jpg" alt="">
+        <img src="./images/mshk.jpg" alt="">
         <div>
-          <p>BOY'S WEAR</p>
+          <p>LUNCH</p>
         </div>
       </div>
 
       <div class="cat">
-        <img src="./images/stock2.png" alt="">
+        <img src="./images/omlette.jpg" alt="">
         <div>
-          <p>ACCESORIES</p>
+          <p>SUPPER</p>
         </div>
       </div>
     </div>
@@ -126,7 +126,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="productDetails.html" class="product-thumb">
-            <img src="./images/shirts.jpg" alt="" />
+            <img src="./images/ocen.jpg" alt="" />
           </a>
         </div>
         <div class="product-info">
@@ -143,7 +143,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/product2.jpg" alt="" />
+            <img src="./images/corn_bread.jpg" alt="" />
           </a>
           <span class="discount">50%</span>
         </div>
@@ -162,7 +162,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/product3.webp" alt="" />
+            <img src="./images/latte.jpg" alt="" />
           </a>
         </div>
         <div class="product-info">
@@ -179,7 +179,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/th.jpg" alt="" />
+            <img src="./images/pizza.jpg" alt="" />
           </a>
           <span class="discount">50%</span>
         </div>
@@ -197,7 +197,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/Product5.jpg" alt="" />
+            <img src="./images/bugger.jpg" alt="" />
           </a>
         </div>
         <div class="product-info">
@@ -214,7 +214,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/R (1).jpg" alt="" />
+            <img src="./images/bread.jpg" alt="" />
           </a>
         </div>
         <div class="product-info">
@@ -231,7 +231,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/OIP (2).jpg" alt="" />
+            <img src="./images/ice.jpg" alt="" />
           </a>
           <span class="discount">50%</span>
         </div>
@@ -249,7 +249,7 @@
       <div class="product-item">
         <div class="overlay">
           <a href="" class="product-thumb">
-            <img src="./images/OIP (3).jpg" alt="" />
+            <img src="./images/corn_bread.jpg" alt="" />
           </a>
         </div>
         <div class="product-info">
@@ -276,7 +276,7 @@
         <a href="#" class="btn btn-1">Discover Now</a>
       </div>
       <div class="right">
-        <img src="./images/about.jpg" alt="">
+        <img src="./images/ocen.jpg" alt="">
       </div>
           </section>
       
@@ -343,7 +343,7 @@
       </div>
       <div class="popup-left">
         <div class="popup-img-container">
-          <img class="popup-img" src="./images/stock2.png" alt="popup">
+          <img class="popup-img" src="./images/corn_bread.jpg" alt="popup">
         </div>
       </div>
       <div class="popup-right">
@@ -359,10 +359,9 @@
       </div>
     </div>
   </div>
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="js/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <script src="js/slider.js"></script>
     <script src="js/index.js"></script>
   </body>

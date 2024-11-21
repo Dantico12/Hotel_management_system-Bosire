@@ -1,6 +1,6 @@
 // Initialize EmailJS
 (function() {
-    emailjs.init("IM6lTrnSiOMJExFS-"); // Replace with your actual public key
+    emailjs.init("IUB8iEInWUX1D2eEM"); // Replace with your actual public key
 })();
 
 // Navigation
@@ -29,126 +29,80 @@ if (popup) {
     });
 }
 
-// Contact Form Helper Functions
-function showAlert(message, type) {
-    const alertMessage = document.getElementById('alert-message');
-    if (alertMessage) {
-        alertMessage.className = `alert alert-${type}`;
-        alertMessage.style.display = 'block';
-        alertMessage.textContent = message;
-
-        // Auto-hide alert after 5 seconds
-        setTimeout(() => {
-            alertMessage.style.display = 'none';
-        }, 5000);
-    }
-}
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Contact Form Submit Handler
-function sendEmail(e) {
-    e.preventDefault();
-
-    const emailInput = document.getElementById('email');
-    const subjectInput = document.getElementById('subject');
-    const messageInput = document.getElementById('message');
-    const submitButton = e.target.querySelector('button[type="submit"]');
-
-    // Validate inputs
-    if (!validateEmail(emailInput.value)) {
-        showAlert('Please enter a valid email address', 'danger');
-        emailInput.focus();
-        return false;
-    }
-
-    if (subjectInput.value.length < 2) {
-        showAlert('Please enter a valid subject', 'danger');
-        subjectInput.focus();
-        return false;
-    }
-
-    if (messageInput.value.length < 10) {
-        showAlert('Message must be at least 10 characters long', 'danger');
-        messageInput.focus();
-        return false;
-    }
-
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
-
-    // Prepare template parameters
-    const templateParams = {
-        email: emailInput.value,
-        subject: subjectInput.value,
-        message: messageInput.value
-    };
-
-    // Send email
-    emailjs.send('service_hei64rq', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function(response) {
-            showAlert('Thank you for your message. We will get back to you soon!', 'success');
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            showAlert('Oops! Something went wrong. Please try again later.', 'danger');
-            console.error('EmailJS Error:', error);
-        })
-        .finally(function() {
-            // Reset button state
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Send Message';
-        });
-
-    return false;
-}
-
-// Add event listeners when DOM is loaded
+// Contact Form Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Contact form submit listener
     const contactForm = document.getElementById('contact-form');
+    const alertMessage = document.getElementById('alert-message');
+
+    // Only proceed if contact form exists on the page
     if (contactForm) {
-        contactForm.addEventListener('submit', sendEmail);
-    }
+        // Show alert message function
+        function showAlert(message, isSuccess) {
+            alertMessage.textContent = message;
+            alertMessage.style.display = 'block';
+            alertMessage.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
+            alertMessage.style.color = 'white';
+            alertMessage.style.padding = '10px';
+            alertMessage.style.marginBottom = '10px';
+            alertMessage.style.borderRadius = '4px';
 
-    // Input validation listeners
-    const emailInput = document.getElementById('email');
-    const subjectInput = document.getElementById('subject');
-    const messageInput = document.getElementById('message');
+            // Hide the alert after 5 seconds
+            setTimeout(() => {
+                alertMessage.style.display = 'none';
+            }, 5000);
+        }
 
-    if (emailInput) {
-        emailInput.addEventListener('blur', function() {
-            if (!validateEmail(this.value) && this.value !== '') {
-                this.classList.add('error');
-                showAlert('Please enter a valid email address', 'danger');
-            } else {
-                this.classList.remove('error');
+        // Add submit event listener to form
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form data
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation
+            if (!email || !subject || !message) {
+                showAlert('Please fill in all fields', false);
+                return;
             }
-        });
-    }
 
-    if (subjectInput) {
-        subjectInput.addEventListener('blur', function() {
-            if (this.value.length < 2 && this.value !== '') {
-                this.classList.add('error');
-                showAlert('Subject is too short', 'danger');
-            } else {
-                this.classList.remove('error');
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showAlert('Please enter a valid email address', false);
+                return;
             }
-        });
-    }
 
-    if (messageInput) {
-        messageInput.addEventListener('blur', function() {
-            if (this.value.length < 10 && this.value !== '') {
-                this.classList.add('error');
-                showAlert('Message must be at least 10 characters long', 'danger');
-            } else {
-                this.classList.remove('error');
-            }
+            // Show loading state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            // Prepare template parameters
+            const templateParams = {
+                email: email,
+                subject: subject,
+                message: message
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_84qxocg', 'template_srprsgo', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showAlert('Message sent successfully!', true);
+                    contactForm.reset(); // Reset form after successful submission
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    showAlert('Failed to send message. Please try again.', false);
+                })
+                .finally(function() {
+                    // Restore button state
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                });
         });
     }
 });

@@ -34,7 +34,7 @@
         
         body {
             font-family: Arial, sans-serif;
-            background: #f0f2f5;
+            background:brown;
             margin: 0;
             display: flex;
             min-height: 100vh;
