@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-// Redirect if already logged in
-if (isset($_SESSION['user_id'])) {
-    // If there's a redirect URL, go there, otherwise go to index
-    $redirectUrl = isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php';
-    header("Location: " . $redirectUrl);
-    exit();
-}
+
 
 require 'db_connection.php'; // Include the database connection
 
